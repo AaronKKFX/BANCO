@@ -122,6 +122,9 @@
                     $dob = new DateTime($row['data_nascimento']);
                     $now = new DateTime();
                     $idade = $now->diff($dob)->y;
+                    $data_orig = $row['data_nascimento'];
+                    $data = new DateTime($data_orig);
+                    $data_formatada = $data->format('d-m-Y');
                     echo "<tr>";
                     echo "<td>".$row['id']."</td>";
                     echo "<td>".$row['nomeanimal']."</td>";
@@ -129,7 +132,7 @@
                     echo "<td>".$row['raca']."</td>";
                     echo "<td>".$row['nomepessoa']."</td>";
                     echo "<td>".$row['email']."</td>";
-                    echo "<td>".$row['data_nascimento']."</td>";
+                    echo "<td>".$data_formatada."</td>";
                     echo "<td>".$idade."</td>";
                     echo "<td>".($row['castrado'] == 1 ? 'SIM' : 'NÃO')."</td>";
                     echo "<td><a href='alteraAnimal.php?id=".$row['id']."' class='btn btn-warning btn-sm'>Alterar</a></td>";
