@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylecidade.css">
-    <title>Deletar Cidade</title>
+    <title>Deletar Cliente</title>
 </head>
 <body>
-      <h1>Deletar Cidade</h1>
+      <h1>Deletar Cliente</h1>
       <?php
         include('includes/conexao.php');
         $id = $_GET['id'];
-        $sql = "DELETE FROM Cliente WHERE id = $id";
+        $sql = "DELETE FROM Pessoa WHERE id = $id";
         $result = mysqli_query($con,$sql);
         if($result)
         {

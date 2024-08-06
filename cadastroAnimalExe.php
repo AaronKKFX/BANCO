@@ -13,8 +13,7 @@
         $especie = $_POST['especie'];
         $raca = $_POST['raca'];
         $data_nascimento = $_POST['data_nascimento'];
-        $idade = $_POST['idade'];
-        $castrado = $_POST['castrado'];
+        $castrado = ISSET($_post['ativo']) ? 1: 0;
         $pessoa = $_POST['pessoa'];
 
         echo "<h1>Dados do Cliente</h1>";
