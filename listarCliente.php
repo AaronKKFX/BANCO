@@ -126,8 +126,8 @@
                     echo "<td>".$row['endereco']."</td>";
                     echo "<td>".$row['bairro']."</td>";
                     echo "<td>".$row['cep']."</td>";
-                    echo "<td><a href='alteracliente.php?id=".$row['id']."' class='btn btn-warning btn-sm btn-custom'>Alterar</a></td>";
-                    echo "<td><a href='deletarcliente.php?id=".$row['id']."' class='btn btn-danger btn-sm btn-custom'>Deletar</a></td>";
+                    echo "<td><a href='alteraCliente.php?id=".$row['id']."' class='btn btn-warning btn-sm btn-custom'>Alterar</a></td>";
+                    echo "<td><a href='deletarCliente.php?id=".$row['id']."' class='btn btn-danger btn-sm btn-custom'>Deletar</a></td>";
                     echo "</tr>";
                 }
                 ?>

@@ -22,12 +22,11 @@
         echo "Especie: $especie<br>";
         echo "Raça: $raca<br>";
         echo "Data de Nascimento: $data_nascimento<br>";
-        echo "Idade: $idade<br>";
         echo "Castrado: $castrado<br>";
 
         $sql = "INSERT INTO Animal
-                (nome,especie,raca,data_nascimento,idade,castrado,id_pessoa)";
-        $sql .= "VALUES ('".$nome."','".$especie."','".$raca."','".$data_nascimento."','".$idade."',".$castrado.",".$pessoa.")";
+                (nome,especie,raca,data_nascimento,castrado,id_pessoa)";
+        $sql .= "VALUES ('".$nome."','".$especie."','".$raca."','".$data_nascimento."',".$castrado.",".$pessoa.")";
 
         //EXECUTA COMANDO NO BANCO DE DADOS
         $result = mysqli_query($con,$sql);

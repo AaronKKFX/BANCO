@@ -90,7 +90,7 @@
 
     <?php
     include('includes/conexao.php');
-    $sql = "SELECT ani.id, ani.nome AS nomeanimal, ani.especie, ani.raca, ani.data_nascimento, ani.idade, ani.castrado,
+    $sql = "SELECT ani.id, ani.nome AS nomeanimal, ani.especie, ani.raca, ani.data_nascimento, ani.castrado,
             pes.nome AS nomepessoa, pes.email FROM Animal ani
             LEFT JOIN Pessoa pes ON pes.id = ani.id_pessoa";
     // Executa a consulta
@@ -117,7 +117,11 @@
             </thead>
             <tbody>
                 <?php
+
                 while ($row = mysqli_fetch_array($result)) {
+                    $dob = new DateTime($row['data_nascimento']);
+                    $now = new DateTime();
+                    $idade = $now->diff($dob)->y;
                     echo "<tr>";
                     echo "<td>".$row['id']."</td>";
                     echo "<td>".$row['nomeanimal']."</td>";
@@ -126,9 +130,9 @@
                     echo "<td>".$row['nomepessoa']."</td>";
                     echo "<td>".$row['email']."</td>";
                     echo "<td>".$row['data_nascimento']."</td>";
-                    echo "<td>".$row['idade']."</td>";
+                    echo "<td>".$idade."</td>";
                     echo "<td>".($row['castrado'] == 1 ? 'SIM' : 'NÃO')."</td>";
-                    echo "<td><a href='alterarAnimal.php?id=".$row['id']."' class='btn btn-warning btn-sm'>Alterar</a></td>";
+                    echo "<td><a href='alteraAnimal.php?id=".$row['id']."' class='btn btn-warning btn-sm'>Alterar</a></td>";
                     echo "<td><a href='deletarAnimal.php?id=".$row['id']."' class='btn btn-danger btn-sm'>Deletar</a></td>";
                     echo "</tr>";
                 }
