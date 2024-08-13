@@ -94,7 +94,7 @@
         <form action="cadastroClienteExe.php" method="post">
             <fieldset>
                 <legend>Cadastro de Clientes</legend>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-center m-2">
                     <div class="col-auto">
                         <label for="nome" class="col-form-label">Nome do Cliente:</label>
                     </div>

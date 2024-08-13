@@ -90,7 +90,7 @@
 
     <?php
     include('includes/conexao.php');
-    $sql = "SELECT ani.id, ani.nome AS nomeanimal, ani.especie, ani.raca, ani.data_nascimento, ani.castrado,
+    $sql = "SELECT ani.id, ani.nome AS nomeanimal, ani.especie, ani.raca, ani.data_nascimento, ani.castrado, ani.foto,
             pes.nome AS nomepessoa, pes.email FROM Animal ani
             LEFT JOIN Pessoa pes ON pes.id = ani.id_pessoa";
     // Executa a consulta
@@ -103,6 +103,7 @@
             <thead>
                 <tr>
                     <th>Código</th>
+                    <th>Foto</th>
                     <th>Nome</th>
                     <th>Espécie</th>
                     <th>Raça</th>
@@ -127,6 +128,14 @@
                     $data_formatada = $data->format('d-m-Y');
                     echo "<tr>";
                     echo "<td>".$row['id']."</td>";
+                    if($row['foto'] == "")
+                    {
+                        echo"<td></td>";
+                    }
+                    else
+                    {
+                        echo "<td><img src='./".$row['foto']."' width='80' height='80'/></td>";
+                    }
                     echo "<td>".$row['nomeanimal']."</td>";
                     echo "<td>".$row['especie']."</td>";
                     echo "<td>".$row['raca']."</td>";

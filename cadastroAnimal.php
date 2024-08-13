@@ -91,10 +91,18 @@
     </nav>
 
     <div class="form-container d-flex flex-column justify-content-center align-items-center">
-        <form action="cadastroAnimalExe.php" method="post">
+        <form action="cadastroAnimalExe.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Cadastro de Animal</legend>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-center m-2">
+                    <div class="col-auto">
+                        <label for="foto" class="col-form-label">Foto do Animal:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="file" name="foto" id="foto"  accept="image/*"class="form-control" aria-describedby="NomeAnimal" required><!-- multiple permite mais de um arquivo -->
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center m-2">
                     <div class="col-auto">
                         <label for="nome" class="col-form-label">Nome do Animal:</label>
                     </div>
@@ -102,7 +110,7 @@
                         <input type="text" name="nome" id="nome" class="form-control" aria-describedby="NomeAnimal" required>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-center m-2">
                     <div class="col-auto">
                         <label for="especie" class="col-form-label">Espécie do Animal:</label>
                     </div>
@@ -110,7 +118,7 @@
                         <input type="text" name="especie" id="especie" class="form-control" aria-describedby="EspecieAnimal" required>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-center m-2">
                     <div class="col-auto">
                         <label for="raca" class="col-form-label">Raça do Animal:</label>
                     </div>
@@ -118,7 +126,7 @@
                         <input type="text" name="raca" id="raca" class="form-control" aria-describedby="RacaAnimal" required>
                     </div>
                 </div>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-center m-2">
                     <div class="col-auto">
                         <label for="data_nascimento" class="col-form-label">Data de Nascimento:</label>
                     </div>

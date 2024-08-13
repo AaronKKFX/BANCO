@@ -9,13 +9,24 @@
 <body>
     <?php
         include('includes/conexao.php');
+        $nome_foto = '';
+        //UPLOAD FOTO
+        if(file_exists($_FILES['foto']['tmp_name'])){
+            $pasta_destino = 'fotos/';
+            $extensao = strtolower(substr($_FILES['foto']['name'],-4));
+            $nome_foto = $pasta_destino . date('Ymd-His').$extensao;
+            move_uploaded_file($_FILES['foto']['tmp_name'],$nome_foto);
+
+        }
+        //FIM UPLOAD
+
+        //INSERÇÃO DOS DADOS
         $nome = $_POST['nome'];
         $especie = $_POST['especie'];
         $raca = $_POST['raca'];
         $data_nascimento = $_POST['data_nascimento'];
         $castrado = ISSET($_post['ativo']) ? 1: 0;
         $pessoa = $_POST['pessoa'];
-
         echo "<h1>Dados do Cliente</h1>";
         echo "Nome: $nome<br>";
         echo "Especie: $especie<br>";
@@ -24,8 +35,8 @@
         echo "Castrado: $castrado<br>";
 
         $sql = "INSERT INTO Animal
-                (nome,especie,raca,data_nascimento,castrado,id_pessoa)";
-        $sql .= "VALUES ('".$nome."','".$especie."','".$raca."','".$data_nascimento."',".$castrado.",".$pessoa.")";
+                (nome ,especie ,raca ,data_nascimento ,castrado ,id_pessoa ,foto)";
+        $sql .= "VALUES ('".$nome."','".$especie."','".$raca."','".$data_nascimento."','".$castrado."',".$pessoa.",'".$nome_foto."')";
 
         //EXECUTA COMANDO NO BANCO DE DADOS
         $result = mysqli_query($con,$sql);

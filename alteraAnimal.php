@@ -99,9 +99,21 @@
     </nav>
 
     <div class="form-container d-flex flex-column justify-content-center align-items-center">
-        <form action="alteraAnimalExe.php" method="post">
+        <form action="alteraAnimalExe.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Alterar Animal</legend>
+                <div class="row g-3 align-items-center m-1">
+                    <div class="col-auto">
+                        <label for="foto" class="col-form-label">Foto do Animal:</label>
+                        <?php
+                         if($row['foto'] != ""){
+                            echo "<td><img src='./".$row['foto']."' width='80' height='80'/></td>";
+                         }
+                        ?>
+                    </div>
+                    <div class="col-auto">
+                        <input type="file" name="foto" id="foto"  accept="image/*"class="form-control" aria-describedby="NomeAnimal" required><!-- multiple permite mais de um arquivo -->
+                    </div>
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
                         <label for="nome" class="col-form-label">Nome do Animal:</label>
